@@ -23,7 +23,11 @@ describe('SerializeFlow', function(){
     var spy2 = sinon.spy();
     var spy3 = sinon.spy();
 
-    var methods = {func0: delayWithSpy(10, spy1), func1: delayWithSpy(5, spy2), func2:  delayWithSpy(2, spy3)};
+    var methods = { 
+      func0: delayWithSpy(10, spy1), 
+      func1: delayWithSpy(5, spy2), 
+      func2: delayWithSpy(2, spy3)
+    };
 
     var checkCalls = function(){
       // First spy is called before

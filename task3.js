@@ -16,8 +16,8 @@
 try{
   var myStringModule = require('./lib/string-helper');
 
-  console.log(myStringModule.titleize("give me titlecase"));
+  console.log(myStringModule.titleize('give me titlecase'));
   // kick of test
 } catch(e){
-  console.log("Create your module at ./lib/string-helper");
+  console.log('Create your module at ./lib/string-helper');
 }

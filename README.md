@@ -18,6 +18,9 @@ Commands that are required to be run on terminal or command prompt are prefixed 
 ## Prerequisites
 To get you running quickly. [Fork this repo](./fork), and [clone it](http://git-scm.com/book/ch2-1.html#Cloning-an-Existing-Repository) onto your computer. The reason for forking is that you can easily keep track of your changes and share you code with your fellow students. Also, it makes it easier for us to give feedback on your code. For more explanation on how to get feedback see the [course guide](https://github.com/DigitPaint/server-side-scripting-in-nodejs-course#workflow).
 
+### Reading list
+
+
 
 ## Task 1
 For this course it is important that you can run node.js code and understand how to run node.js code.
@@ -75,11 +78,9 @@ So far, we haven't done anything server related. But héh, ...this course is cal
 
 
 ## Wrapping up
-You've now completed the first exercise of this course. There are however a few last things. You can the complete test suite, with ```$ npm test```. 
+You've now completed the first exercise of this course. There are however a few last things. You can run the complete test suite, with ```$ npm test```. If all the individual ```npm run test:task*``` tested successfully, this should work to test the complete set. As discussed during the lecture, ```jshint``` can help you verify the consistency your code style. Running ```$ node_modules/.bin/jshint .``` will check it for all your code. 
 
-Consitency checks with jshint.
-
-Commit changes
+As last, it is advisable to commit your solutions. Because they will help you with the final assignment and this will make sure that your code is backed up by GitHub. 
 
 
 

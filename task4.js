@@ -17,7 +17,7 @@ var serializeFlow = require('./lib/serialize-flow');
 
 var func1 = function(callback){
   setTimeout(function(){
-    console.log("Func1 done");
+    console.log('Func1 done');
     if(callback){
       callback();
     }
@@ -26,7 +26,7 @@ var func1 = function(callback){
 
 var func2 = function(callback){
   setTimeout(function(){
-    console.log("Func2 done");
+    console.log('Func2 done');
     if(callback){
       callback();
     }
@@ -35,7 +35,7 @@ var func2 = function(callback){
 
 var func3 = function(callback){
   setTimeout(function(){
-    console.log("Func3 done");
+    console.log('Func3 done');
     if(callback){
       callback();
     }
