@@ -16,7 +16,7 @@ Commands that are required to be run on terminal or command prompt are prefixed 
 
 
 ## Prerequisites
-To get you running quickly. [Fork this repo](), and [clone it]() onto your computer. The reason for forking is that you can easily keep track of your changes and share you code with your fellow students. Also, it makes it easier for us to give feedback on your code.
+To get you running quickly. [Fork this repo](./fork), and [clone it](http://git-scm.com/book/ch2-1.html#Cloning-an-Existing-Repository) onto your computer. The reason for forking is that you can easily keep track of your changes and share you code with your fellow students. Also, it makes it easier for us to give feedback on your code. For more explanation on how to get feedback see the [course guide](https://github.com/DigitPaint/server-side-scripting-in-nodejs-course#workflow).
 
 
 ## Task 1
