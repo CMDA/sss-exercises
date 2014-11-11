@@ -1,1 +1,3 @@
 node_modules
+.ntvs_analysis.dat
+npm-debug.log
