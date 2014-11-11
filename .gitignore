@@ -1,3 +1,5 @@
 node_modules
 .ntvs_analysis.dat
 npm-debug.log
+# That would be to easy
+answer.js
