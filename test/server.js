@@ -1,5 +1,7 @@
 var http = require('http'),
-    expect = require('chai').expect,
+    chai = require('chai'),
+    assert = chai.assert,
+    expect = chai.expect,
     server = require('../lib/server');
 
 describe('Server', function(){
@@ -7,8 +9,17 @@ describe('Server', function(){
   // start server
   server();
   
-  it('runs on 127.0.0.1:3000, greeting with "Hello World!"', function(done){
-    var body = '', failed;
+  it("should running on 3000 and return statuscode 200", function(done) {
+    http.get("http://127.0.0.1:3000", function(res) {
+      expect(res.statusCode).to.equal(200);
+      done();
+    }).on('error', function(){
+      done(new Error('Server not running or returning statuscode 200'));
+    });
+  });
+
+  it('should running on 3000 and it should return greeting with "Hello World!"', function(done){
+    var body = '';
     
     http.get('http://127.0.0.1:3000', function(res){
       res.on('data', function(responseData){
@@ -20,14 +31,7 @@ describe('Server', function(){
         done();
       });
     }).on('error', function(){
-      // Works for now, but could use some love
-      // Mainly it makes sure it doesnt fail twice, when the error event
-      // is triggered twice.
-      if(!failed){
-        failed = true;
-        expect(false).to.equal(true);
-      }
-      done();
+      done(new Error('Server not responding with "Hello World!" or not running on 3000'));
     });
   });
 
