@@ -1,6 +1,6 @@
 # Server-side scripting in node.js -- Exercise 1
 
-Practice exercises for [lecture 1]() of the server-side scripting in node.js course.
+Practice exercises for the [sss-course](https://github.com/CMDA/sss-course).
 
 
 ## Overview
