@@ -16,10 +16,10 @@
   },
   "scripts": {
     "test": "mocha -R nyan",
-    "test-task2": "node test/support/task-runner.js -- test/calculator.js",
-    "test-task3": "node test/support/task-runner.js -- test/string-helper.js",
-    "test-task4": "node test/support/task-runner.js -- test/serialize-flow.js",
-    "test-task5": "node test/support/task-runner.js -- test/server.js"
+    "test:task2": "node test/support/task-runner.js -- test/calculator.js",
+    "test:task3": "node test/support/task-runner.js -- test/string-helper.js",
+    "test:task4": "node test/support/task-runner.js -- test/serialize-flow.js",
+    "test:task5": "node test/support/task-runner.js -- test/server.js"
   },
   "keywords": [
     "exercise1",
