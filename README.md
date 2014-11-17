@@ -28,7 +28,9 @@ To get you running quickly. [Fork this repo](https://github.com/Digitpaint/serve
 ## Task 1
 For this course it is important that you can run node.js code and understand how to run node.js code.
 
+
 1. Install node.js, grab the installer from [nodejs.org](http://nodejs.org)
+    1a. While node is installing, take your time to read to exercise and review [the lecture](http://cmda.github.io/sss-course/lesson1) 
 2. After installing node.js you should be able to start the REPL by typing, ```$ node ``` in your command prompt. Feel free to play around, e.g. ``` > 4 + 2```.
 3. Install the dependencies for this exercise ```$ npm install ```
 4. Run the first commandline script ``` $ node index.js ``` 
@@ -83,7 +85,7 @@ So far, we haven't done anything server related. But héh, ...this course is cal
 ## Wrapping up
 You've now completed the first exercise of this course. There are however a few last things. You can run the complete test suite, with ```$ npm test```. If all the individual ```npm run test:task*``` tested successfully, this should work to test the complete set. As discussed during the lecture, ```jshint``` can help you verify the consistency your code style. Running ```$ node_modules/.bin/jshint .``` will check it for all your code. 
 
-As last, it is advisable to commit and push your solutions because they will help you with the final assignment. Pushing your code will make sure that your code is backed up by GitHub. 
+As last, it is advisable to commit and push your solutions because they will help you with the final assignment and prepare the exams. Pushing your code will make sure that your code is backed up by GitHub. 
 
 
 
