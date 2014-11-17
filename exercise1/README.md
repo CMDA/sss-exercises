@@ -63,7 +63,9 @@ stringModule.titleize('this string will appear in titlecase') // => This String 
 ## Task 4
 Debugging
 
-1. D
+1. Install de node-debugger
+2. Open the file ```task4.js```
+3. This file makes a request to GitHub
 
 ## Wrapping up
 You've now completed the first exercise of this course. There are however a few last things. You can run the complete test suite, with ```$ npm test```. If all the individual ```npm run test:task*``` tested successfully, this should work to test the complete set. As discussed during the lecture, ```jshint``` can help you verify the consistency your code style. Running ```$ node_modules/.bin/jshint .``` will check it for all your code. 
