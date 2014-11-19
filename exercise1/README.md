@@ -115,9 +115,9 @@ For task 4 we created a small module that summaries API output from the [GitHub 
 11. You can now, either add a breakpoint in the inspector by clicking the line number you want the execution to break, or let the code continue (by clicking x), and add a ```debugger``` statement in code. 
 13. Re-run ```$ node-debug task4.js```.
 13. Navigate to the the ```top5``` function, 
-    13a. Can you verify if the sorting function works?
-    13b. Why are we using reverse()
-    13c. And what happens when we call [Array.splice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice), does that match with our intend?
+  * Can you verify if the sorting function works?
+  * Why are we using reverse()
+  * And what happens when we call [Array.splice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice), does that match with our intend?
 13. Found the problem? Fix it and verify it ```$ npm run test:task4```
 14. This should still point out a problem in the averageStars function, can you debug this?
 15. When done; ```$ node task4.js``` && ```$ npm run test:task4```
