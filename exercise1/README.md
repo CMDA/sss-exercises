@@ -11,7 +11,7 @@ This exercise will help you:
 * create and use your own module,
 * learn working with the debugger statement.
 
-Commands that are required to be run on terminal or command prompt are prefixed with a ```$```. The commands are to be executed from of the exercise. For most tasks some basic tests are added. These test help you to verify your solution. These tests can be found in ```./test/``` directory. First of all, these tests aren't holy. So it may be the case that while the tests are failing, your solution is perfectly fine. Understanding why it fails however is fairly important. Last thing is that in theory they are fairly easy to cheat, and may not check all edge cases, which you would like to catch in production code. We just hope they give you some pointers. 
+Commands that are required to be run on terminal or command prompt are prefixed with a ```$``` __(it's not required to copy this)__. The commands are to be executed from the folder of the exercise. For most tasks some basic tests are added. These test help you to verify your solution. These tests can be found in ```./test/``` directory. First of all, these tests aren't holy. So it may be the case that while the tests are failing, your solution is perfectly fine. Understanding why it fails however is fairly important. Last thing is that in theory they are fairly easy to cheat, and may not check all edge cases, which you would like to catch in production code. We just hope they give you some pointers. 
 
 
 ## Prerequisites
