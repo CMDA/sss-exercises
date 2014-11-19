@@ -12,14 +12,14 @@
     "chai": "~1.10.0",
     "jshint": "^2.5.10",
     "mocha": "~2.0.1",
-    "sinon": "~1.11.1"
+    "sinon": "~1.11.1",
+    "mocha-clean": "~0.4.0"
   },
   "scripts": {
     "test": "mocha -R nyan",
     "test:task2": "node test/support/task-runner.js -- test/calculator.js",
     "test:task3": "node test/support/task-runner.js -- test/string-helper.js",
-    "test:task4": "node test/support/task-runner.js -- test/serialize-flow.js",
-    "test:task5": "node test/support/task-runner.js -- test/server.js"
+    "test:task4": "node test/support/task-runner.js -- test/stars.js"
   },
   "keywords": [
     "exercise1",

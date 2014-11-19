@@ -13,9 +13,25 @@
 //  = Task 4 =
 //  ==========
 
-// Request github forks of courses
+// Load up the TermCounter module
+var Stars = require('./lib/stars');
+var fs = require('fs');
 
-// Present this in a server
+// Read the data-set
+var repositories = JSON.parse(fs.readFileSync('./data/task4.json', 'utf8'));
 
-// helper that returns forkers
+// Create stars instance
+var stars = Stars(repositories.items);
 
+// Get top5 & average
+var top5 = stars.top5();
+var avg = stars.averageStars();
+
+// Output data to console
+console.log('\n# TOP 5');
+top5.forEach(function(repo, index){
+  console.log('%d. %s (★ %d)', index + 1, repo.name, repo.stargazers_count); /* jshint ignore:line */
+});
+
+console.log('--------------------------------');
+console.log('# Average ★', avg, '\n');

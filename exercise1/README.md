@@ -12,7 +12,7 @@ This exercise will help you:
 * understand asynchronous code, and
 * start the first webserver based on node.js.
 
-Commands that are required to be run on terminal or command prompt are prefixed with a ```$```. The commands are to be executed from of the exercise. For every task expect task 1, some basic tests are added. These test help you to verify your solution. These tests can be found in ```./test/``` directory. First of all, these tests aren't holy. So it may be the case that while the tests are failing your solution is perfectly fine. Understanding why it fails however is fairly important. Last thing is that in theory they are fairly easy to cheat, and may not check all edge cases, which you would like to catch in production code. We just hope they give you some pointers. 
+Commands that are required to be run on terminal or command prompt are prefixed with a ```$```. The commands are to be executed from of the exercise. For most tasks some basic tests are added. These test help you to verify your solution. These tests can be found in ```./test/``` directory. First of all, these tests aren't holy. So it may be the case that while the tests are failing, your solution is perfectly fine. Understanding why it fails however is fairly important. Last thing is that in theory they are fairly easy to cheat, and may not check all edge cases, which you would like to catch in production code. We just hope they give you some pointers. 
 
 
 ## Prerequisites
@@ -55,22 +55,96 @@ stringModule.titleize('this string will appear in titlecase') // => This String 
 ```
 
 1. Create a file named ```string-helper.js```, in the ```lib``` folder. 
-2. Create an object, with the function ```titleize```, this function should take an input string and return this string in titlecase.
+2. Create an object, with the function ```titleize```, this function should take an input string and return this string in titlecase (see example below).
 3. You can verify your module by running ```$ node task3.js```. 
 4. The supplied tests can be run with ```$ npm run test:task3```.
 
+### Example module
+```
+var tools = {
+  titleize: function(input){
+    // manipulate the input the match the required behaviour
+    return input;
+  }
+};
+
+module.exports = tools;
+```
+
 
 ## Task 4
-Debugging
 
-1. Install de node-debugger
-2. Open the file ```task4.js```
-3. This file makes a request to GitHub
+For task 4 we created a small module that summaries API output from the [GitHub search api](https://developer.github.com/v3/search/) by making a top 5 of most stared repositories and calulating the average amount of stars. However are tests don't work and we don't understand why, using the [node-inspector](https://github.com/node-inspector/node-inspector), we will investigate this issue.
+
+1. Install the node-debugger with ```$ npm install -g node-inspector```
+2. Open the file ```task4.js```, in this task we read the API data from ```data/task4.json``` and pass the `items` array to the stars module (```./lib/stars.js```). The stars has two functions 1) to select the 5 most stared repositories and 2) to calculate the average. 
+3. Execute ```$ node task4.js```, at first it looks that our module works just fine. However, when closely examining the results, the average turns out to be `NaN`. When running the tests for this ```$ npm run test:task4```, we see that are even more problems with this module. 
+4. Lets get our tests working again!
+5. When revising the first error of the test command, it looks like the output of our function is not correct:
+```
+    AssertionError: expected [ Array(5) ] to deeply equal [ Array(5) ]
+      + expected - actual
+```
+
+```diff
+       [
+         {
+      +    "name": "lib1"
+      +    "stargazers_count": 368
+      +  }
+      +  {
+           "name": "lib0"
+           "stargazers_count": 245
+         }
+         {
+         {
+           "name": "lib3"
+           "stargazers_count": 17
+         }
+      -  {
+      -    "name": "lib2"
+      -    "stargazers_count": 10
+      -  }
+       ]
+```
+6. While you could use ```console.log```, you'll see that the repository object holds quite some information making it hard to debug. Lets use ```node-inspector``` to solve this problem. Place a ```debugger``` statement after ``` var stars = function(repositories){ ``` in the ```lib/stars.js``` module and run ```task4.js``` again, but now instead of ```$ node task4.js``` use ```$ node-debug task4.js```.
+7. The node-debug utility halts by default at the first line of your program. By pressing the _resume execution button (F8)_, node.js will continue the executing of the program. When you added the debugger statement correctly, you will now jump to the ```Stars``` function.
+8. You can now open the console, by pressing the _Show console_ button (number 1 in the image below).
+9. By typing ```repositories```, you'll see the contents of this variable. The functionality here is comparable with that of the REPL. You can see al the variables that are inside the scope here at in the _Scope Variable_ pane on the left. 
+10. When we revise the output of step 5, we can see that the return value of ``` top5() ``` is different than what our suite expects. Lets inspect that function and what happens inside. 
+11. You can now, either add a breakpoint in the inspector by clicking the line number you want the execution to break, or let the code continue (by clicking x), and add a ```debugger``` statement in code. 
+13. Re-run ```$ node-debug task4.js```.
+13. Navigate to the the ```top5``` function, 
+    13a. Can you verify if the sorting function works?
+    13b. Why are we using reverse()
+    13c. And what happens when we call [Array.splice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice), does that match with our intend?
+13. Found the problem? Fix it and verify it ```$ npm run test:task4```
+14. This should still point out a problem in the averageStars function, can you debug this?
+15. When done; ```$ node task4.js``` && ```$ npm run test:task4```
+
+
+### Node-inspector
+![Show console](http://cl.ly/image/3e200c1V0F3a)
+
+1. _Show console_, interact with code at the breakpoint.
+2. _Show navigator_, show all the files, so you can access you modules here also.
+3. _Scope variables_, which variables are set at your breakpoint.
+4. _Resume execution_, when you coded stopped execution at a breakpoint, use this button to continue.
+
+### Extra task 
+Can you modify the ```task4.js``` to use the actual API of GitHub?
+
+E.g. we've used to following url to retrieve the data set of ```data/task4.json```
+
+```
+https://api.github.com/search/repositories?q=node+language:javascript&per_page=100
+```
+
 
 ## Wrapping up
-You've now completed the first exercise of this course. There are however a few last things. You can run the complete test suite, with ```$ npm test```. If all the individual ```npm run test:task*``` tested successfully, this should work to test the complete set. As discussed during the lecture, ```jshint``` can help you verify the consistency your code style. Running ```$ node_modules/.bin/jshint .``` will check it for all your code. 
+You've now completed the first exercise of this course. There are however a few last things. You can run the complete test suite, with ```$ npm test```. If all the individual ```npm run test:task*``` tested successfully, this should work to test the complete set. As discussed during the lecture, ```jshint``` can help you verify the consistency of your code style. Running ```$ node_modules/.bin/jshint .``` will check it for all your code. 
 
-As last, it is advisable to commit and push your solutions because they will help you with the final assignment and prepare the exams. Pushing your code will make sure that your code is backed up by GitHub. 
+As last, it is advisable to commit and push your solutions because they will help you prepare the exams and develop the final assignment. Pushing your code will make sure that your code is backed up by GitHub. 
 
 
 
