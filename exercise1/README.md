@@ -124,7 +124,7 @@ For task 4 we created a small module that summaries API output from the [GitHub 
 
 
 ### Node-inspector
-![Show console](http://cl.ly/image/3e200c1V0F3a)
+![Show console](http://f.cl.ly/items/2u0t1V0u0A0H1S2O0O36/node-inspector.png)
 
 1. _Show console_, interact with code at the breakpoint.
 2. _Show navigator_, show all the files, so you can access you modules here also.
