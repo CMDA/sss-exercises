@@ -86,7 +86,7 @@ For task 4 we created a small module that summaries API output from the [GitHub 
       + expected - actual
 ```
 
-```diff
+```Diff
        [
          {
       +    "name": "lib1"
