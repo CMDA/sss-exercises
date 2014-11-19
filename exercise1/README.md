@@ -9,8 +9,7 @@ This exercise will help you:
 * run your first node.js script,
 * work with variables,
 * create and use your own module,
-* understand asynchronous code, and
-* start the first webserver based on node.js.
+* learn working with the debugger statement.
 
 Commands that are required to be run on terminal or command prompt are prefixed with a ```$```. The commands are to be executed from of the exercise. For most tasks some basic tests are added. These test help you to verify your solution. These tests can be found in ```./test/``` directory. First of all, these tests aren't holy. So it may be the case that while the tests are failing, your solution is perfectly fine. Understanding why it fails however is fairly important. Last thing is that in theory they are fairly easy to cheat, and may not check all edge cases, which you would like to catch in production code. We just hope they give you some pointers. 
 
@@ -74,7 +73,7 @@ module.exports = tools;
 
 ## Task 4
 
-For task 4 we created a small module that summaries API output from the [GitHub search api](https://developer.github.com/v3/search/) by making a top 5 of most stared repositories and calulating the average amount of stars. However are tests don't work and we don't understand why, using the [node-inspector](https://github.com/node-inspector/node-inspector), we will investigate this issue.
+For task 4 we created a small module that summaries API output from the [GitHub search api](https://developer.github.com/v3/search/) by making a top 5 of most stared repositories and calulating the average amount of stars. However the tests aren't working and we don't understand why, using the [node-inspector](https://github.com/node-inspector/node-inspector), we will investigate this issue.
 
 1. Install the node-debugger with ```$ npm install -g node-inspector```
 2. Open the file ```task4.js```, in this task we read the API data from ```data/task4.json``` and pass the `items` array to the stars module (```./lib/stars.js```). The stars has two functions 1) to select the 5 most stared repositories and 2) to calculate the average. 
