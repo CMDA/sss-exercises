@@ -39,7 +39,7 @@ For this course it is important that you can run node.js code and understand how
 ## Task 2
 We have a made a very simple calculator, however the implementation is missing. As this is a very simple calculator, it only supports a sum and multiplication methods.
 
-1. Open the calculator ```./lib/calculator.js```
+1. Open the calculator ```./lib/calculator.js``` in your code editor (Brackets, Sublime, etc.)
 2. Complete the implementation for the ```sum``` method.
 3. Run ```$ node task2.js```. Is it working?
 4. Complete the implementation for the ```multiply``` method.
