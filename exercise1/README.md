@@ -11,7 +11,7 @@ This exercise will help you:
 * create and use your own module,
 * learn working with the debugger statement.
 
-Commands that are required to be run on terminal or command prompt are prefixed with a ```$``` __(it's not required to copy this)__. The commands are to be executed from the folder of the exercise. For most tasks some basic tests are added. These test help you to verify your solution. These tests can be found in ```./test/``` directory. First of all, these tests aren't holy. So it may be the case that while the tests are failing, your solution is perfectly fine. Understanding why it fails however is fairly important. Last thing is that in theory they are fairly easy to cheat, and may not check all edge cases, which you would like to catch in production code. We just hope they give you some pointers. 
+Commands that are required to be run on terminal or command prompt are prefixed with a ```$``` __(it's not required to copy this)__. The commands are to be executed from the folder of the exercise. For most tasks some basic tests are added. These test help you to verify your solution. These tests can be found in ```./test/``` directory. First of all, these tests aren't holy. So it may be the case that while the tests are failing, your solution is perfectly fine. Understanding why it fails however is fairly important. Last thing is that in theory they are fairly easy to cheat, and may not check all edge cases, which you would like to catch in production code. We just hope they give you some pointers.
 
 
 ## Prerequisites
@@ -21,7 +21,7 @@ To get you running quickly. [Fork this repo](https://github.com/CMDA/sss-exercis
 * [Node. js in Action, Cantelon, Mike, et al. - Manning Publications, 2014](http://www.manning.com/cantelon/)
   * Chapter 3, t/m 3.2.3 (p 27 t/m 58)
   * Appendix A5 (p 363 t/m 366)
-  * Appendix B1 t/m B3.2 (p 367 t/m 371) 
+  * Appendix B1 t/m B3.2 (p 367 t/m 371)
 
 
 ## Task 1
@@ -29,14 +29,15 @@ For this course it is important that you can run node.js code and understand how
 
 
 1. Install node.js, grab the installer from [nodejs.org](http://nodejs.org)
-    1a. While node is installing, take your time to read to exercise and review [the lecture](http://cmda.github.io/sss-course/lesson1) 
+    1a. While node is installing, take your time to read to exercise and review [the lecture](http://cmda.github.io/sss-course/lesson1)
 2. After installing node.js you should be able to start the REPL by typing, ```$ node ``` in your command prompt. Feel free to play around, e.g. ``` > 4 + 2```.
-3. Install the dependencies for this exercise ```$ npm install ```
-4. Run the first commandline script ``` $ node index.js ``` 
+3. Enter the directory of excercise1
+4. Install the dependencies for this exercise ```$ npm install ```
+5. Run the first commandline script ``` $ node index.js ```
 
 
 ## Task 2
-We have a made a very simple calculator, however the implementation is missing. As this is a very simple calculator, it only supports a sum and multiplication methods. 
+We have a made a very simple calculator, however the implementation is missing. As this is a very simple calculator, it only supports a sum and multiplication methods.
 
 1. Open the calculator ```./lib/calculator.js```
 2. Complete the implementation for the ```sum``` method.
@@ -47,15 +48,15 @@ We have a made a very simple calculator, however the implementation is missing. 
 
 
 ## Task 3
-In the earlier example, you've seen the first module. Lets make our own one, now. In this module we are going to convert a string to titlecase, e.g. 
+In the earlier example, you've seen the first module. Lets make our own one, now. In this module we are going to convert a string to titlecase, e.g.
 
 ```javascript
 stringModule.titleize('this string will appear in titlecase') // => This String Will Appear In Titlecase
 ```
 
-1. Create a file named ```string-helper.js```, in the ```lib``` folder. 
+1. Create a file named ```string-helper.js```, in the ```lib``` folder.
 2. Create an object, with the function ```titleize```, this function should take an input string and return this string in titlecase (see example below).
-3. You can verify your module by running ```$ node task3.js```. 
+3. You can verify your module by running ```$ node task3.js```.
 4. The supplied tests can be run with ```$ npm run test:task3```.
 
 ### Example module
@@ -76,8 +77,8 @@ module.exports = tools;
 For task 4 we created a small module that summaries API output from the [GitHub search api](https://developer.github.com/v3/search/) by making a top 5 of most stared repositories and calulating the average amount of stars. However the tests aren't working and we don't understand why, using the [node-inspector](https://github.com/node-inspector/node-inspector), we will investigate this issue.
 
 1. Install the node-debugger with ```$ npm install -g node-inspector```
-2. Open the file ```task4.js```, in this task we read the API data from ```data/task4.json``` and pass the `items` array to the stars module (```./lib/stars.js```). The stars has two functions 1) to select the 5 most stared repositories and 2) to calculate the average. 
-3. Execute ```$ node task4.js```, at first it looks that our module works just fine. However, when closely examining the results, the average turns out to be `NaN`. When running the tests for this ```$ npm run test:task4```, we see that are even more problems with this module. 
+2. Open the file ```task4.js```, in this task we read the API data from ```data/task4.json``` and pass the `items` array to the stars module (```./lib/stars.js```). The stars has two functions 1) to select the 5 most stared repositories and 2) to calculate the average.
+3. Execute ```$ node task4.js```, at first it looks that our module works just fine. However, when closely examining the results, the average turns out to be `NaN`. When running the tests for this ```$ npm run test:task4```, we see that are even more problems with this module.
 4. Lets get our tests working again!
 5. When revising the first error of the test command, it looks like the output of our function is not correct:
 ```
@@ -109,11 +110,11 @@ For task 4 we created a small module that summaries API output from the [GitHub 
 6. While you could use ```console.log```, you'll see that the repository object holds quite some information making it hard to debug. Lets use ```node-inspector``` to solve this problem. Place a ```debugger``` statement after ``` var stars = function(repositories){ ``` in the ```lib/stars.js``` module and run ```task4.js``` again, but now instead of ```$ node task4.js``` use ```$ node-debug task4.js```.
 7. The node-debug utility halts by default at the first line of your program. By pressing the _resume execution button (F8)_, node.js will continue the executing of the program. When you added the debugger statement correctly, you will now jump to the ```Stars``` function.
 8. You can now open the console, by pressing the _Show console_ button (number 1 in the image below).
-9. By typing ```repositories```, you'll see the contents of this variable. The functionality here is comparable with that of the REPL. You can see al the variables that are inside the scope here at in the _Scope Variable_ pane on the left. 
-10. When we revise the output of step 5, we can see that the return value of ``` top5() ``` is different than what our suite expects. Lets inspect that function and what happens inside. 
-11. You can now, either add a breakpoint in the inspector by clicking the line number you want the execution to break, or let the code continue (by clicking x), and add a ```debugger``` statement in code. 
+9. By typing ```repositories```, you'll see the contents of this variable. The functionality here is comparable with that of the REPL. You can see al the variables that are inside the scope here at in the _Scope Variable_ pane on the left.
+10. When we revise the output of step 5, we can see that the return value of ``` top5() ``` is different than what our suite expects. Lets inspect that function and what happens inside.
+11. You can now, either add a breakpoint in the inspector by clicking the line number you want the execution to break, or let the code continue (by clicking x), and add a ```debugger``` statement in code.
 13. Re-run ```$ node-debug task4.js```.
-13. Navigate to the the ```top5``` function, 
+13. Navigate to the the ```top5``` function,
   * Can you verify if the sorting function works?
   * Why are we using reverse()
   * And what happens when we call [Array.splice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice), does that match with our intend?
@@ -130,7 +131,7 @@ For task 4 we created a small module that summaries API output from the [GitHub 
 3. _Scope variables_, which variables are set at your breakpoint.
 4. _Resume execution_, when you coded stopped execution at a breakpoint, use this button to continue.
 
-### Extra task 
+### Extra task
 Can you modify the ```task4.js``` to use the actual API of GitHub?
 
 E.g. we've used to following url to retrieve the data set of ```data/task4.json```
@@ -141,9 +142,9 @@ https://api.github.com/search/repositories?q=node+language:javascript&per_page=1
 
 
 ## Wrapping up
-You've now completed the first exercise of this course. There are however a few last things. You can run the complete test suite, with ```$ npm test```. If all the individual ```npm run test:task*``` tested successfully, this should work to test the complete set. As discussed during the lecture, ```jshint``` can help you verify the consistency of your code style. Running ```$ node_modules/.bin/jshint .``` will check it for all your code. 
+You've now completed the first exercise of this course. There are however a few last things. You can run the complete test suite, with ```$ npm test```. If all the individual ```npm run test:task*``` tested successfully, this should work to test the complete set. As discussed during the lecture, ```jshint``` can help you verify the consistency of your code style. Running ```$ node_modules/.bin/jshint .``` will check it for all your code.
 
-As last, it is advisable to commit and push your solutions because they will help you prepare the exams and develop the final assignment. Pushing your code will make sure that your code is backed up by GitHub. 
+As last, it is advisable to commit and push your solutions because they will help you prepare the exams and develop the final assignment. Pushing your code will make sure that your code is backed up by GitHub.
 
 
 
