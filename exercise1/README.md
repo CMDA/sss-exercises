@@ -74,7 +74,9 @@ module.exports = tools;
 
 ## Task 4
 
-For task 4 we created a small module that summaries API output from the [GitHub search api](https://developer.github.com/v3/search/) by making a top 5 of most stared repositories and calulating the average amount of stars. However the tests aren't working and we don't understand why, using the [node-inspector](https://github.com/node-inspector/node-inspector), we will investigate this issue.
+For task 4 we created a small module that summaries API output from the [GitHub search api](https://developer.github.com/v3/search/) by making a top 5 of most stared repositories and calulating the average amount of stars. To keep things simple we have stored the output of this API call in a local JSON file. You'll find this file in ```data/task4.json```.
+
+However, we have a problem! The tests aren't working and we don't understand why. Using the [node-inspector](https://github.com/node-inspector/node-inspector), we will investigate this issue.
 
 1. Install the node-debugger with ```$ npm install -g node-inspector```
 2. Open the file ```task4.js```, in this task we read the API data from ```data/task4.json``` and pass the `items` array to the stars module (```./lib/stars.js```). The stars has two functions 1) to select the 5 most stared repositories and 2) to calculate the average.
