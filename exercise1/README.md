@@ -144,7 +144,7 @@ https://api.github.com/search/repositories?q=node+language:javascript&per_page=1
 
 
 ## Wrapping up
-You've now completed the first exercise of this course. There are however a few last things. You can run the complete test suite, with ```$ npm test```. If all the individual ```npm run test:task*``` tested successfully, this should work to test the complete set. As discussed during the lecture, ```jshint``` can help you verify the consistency of your code style. Running ```$ node_modules/.bin/jshint .``` will check it for all your code.
+You've now completed the first exercise of this course. There are however a few last things. You can run the complete test suite, with ```$ npm test```. If all the individual ```npm run test:task*``` tested successfully, this should work to test the complete set. As discussed during the lecture, ```jshint``` can help you verify the consistency of your code style. Running ```$ node_modules/.bin/jshint .``` will check it for all your code. However running jshint from your local node_modules path is a bit cumbersome. It's much easier to install jshint globally, that way you can just run ```jshint .```.
 
 As last, it is advisable to commit and push your solutions because they will help you prepare the exams and develop the final assignment. Pushing your code will make sure that your code is backed up by GitHub.
 
