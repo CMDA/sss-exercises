@@ -31,9 +31,10 @@ For this course it is important that you can run node.js code and understand how
 1. Install node.js, grab the installer from [nodejs.org](http://nodejs.org)
     1a. While node is installing, take your time to read to exercise and review [the lecture](http://cmda.github.io/sss-course/lesson1)
 2. After installing node.js you should be able to start the REPL by typing, ```$ node ``` in your command prompt. Feel free to play around, e.g. ``` > 4 + 2```.
-3. Enter the directory of excercise1
-4. Install the dependencies for this exercise ```$ npm install ```
-5. Run the first commandline script ``` $ node index.js ```
+3. Exit the Node REPL by pressing ctrl+c twice
+4. Enter the directory of excercise1 by typing ```cd ```(plus space) and drag+drop the 'excercise1' folder in the terminal window
+5. Install the dependencies for this exercise ```$ npm install ```
+6. Run the first commandline script ``` $ node index.js ```
 
 
 ## Task 2
