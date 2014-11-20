@@ -23,5 +23,5 @@ try{
   console.log(myStringModule.titleize('give me titlecase'));
   // kick of test
 } catch(e){
-  console.log('Create your module at ./lib/string-helper');
+  console.log('There is an error in your script or you\'ve to create your module at ./lib/string-helper.js first');
 }
