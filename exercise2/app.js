@@ -1,8 +1,6 @@
 var express = require('express');
 var path = require('path');
 var app = express();
-var index = require('./routes/index');
-
 
 // Setup serving static assets
 app.use(express.static('public'));
