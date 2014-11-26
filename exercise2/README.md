@@ -10,7 +10,7 @@ This exercise will help you understand:
 * the way external data can be retrieved and rendered.
 
 ## Before you start
-* [Download the exercises]()
+* [Download the exercises](http://cl.ly/0u2p1x3k1H15)
 * Read this exercise
 * Install the dependencies, ```npm install```.
 * _It is advisable to type all code by hand_, and not to copy-paste the examples. By typing them by hand, helps you reason about every single line and makes it comprehensible. 
