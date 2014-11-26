@@ -1,0 +1,13 @@
+<h1><%= title %></h1>
+
+<!--
+  Using <pre> & JSON.stringify pure for debuggin purposes
+  ===
+
+  * <pre> Tells the browser that we have preformatted text meaning it preserves the whitespacing
+  * JSON.stringify for displaying the conents of blogposts, see also
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
+-->
+<pre>
+  <%= JSON.stringify(blogPosts, null, 2) %>
+</pre>
