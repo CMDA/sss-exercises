@@ -17,15 +17,15 @@ This exercise will help you understand:
 
 ### Reading list
 * [Node. js in Action, Cantelon, Mike, et al. - Manning Publications, 2014](http://www.manning.com/cantelon/)
-  ** Hoodstuk 3.2, t/m 3.4 (p 46 t/m 67)
-  ** Hoodstuk 8, t/m 8.3 (p 176 t/m 193), minder relevant: "view caching"
+  * Hoodstuk 3.2, t/m 3.4 (p 46 t/m 67)
+  * Hoodstuk 8, t/m 8.3 (p 176 t/m 193), minder relevant: "view caching"
 
 ## Task 1
 In this course, [Express.js](http://expressjs.com/) will be used as framework. This framework offers an lean and accessible way of working with Node.js. In this task you will get familiar with basic structure of an Express application.
 
 1. Start the server with ```node app.js```
 2. Open [http://localhost:3000](http://localhost:3000) in your browser, this will display the list of tasks. 
-  2a. Read [#Explaining app.js](#explaining-app.js) 
+  * Read [#Explaining app.js](#explaining-app.js) 
 3. Add a image to the ```public/images``` directory in the public folder. You can find a example image in the ```data``` directory.
 4. Point your browser to ```http://localhost:3000/images/your-filename```, is the image served?
 5. The rest of the concepts such as templates and routes will be discussed in more depth in the next tasks.
