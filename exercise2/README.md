@@ -10,7 +10,7 @@ This exercise will help you understand:
 * the way external data can be retrieved and rendered.
 
 ## Before you start
-* [Download the exercises](http://cl.ly/1W0z2s041K39)
+* [Download the exercises](http://cl.ly/0g3T3g001q15)
 * Read this exercise
 * Install the dependencies, ```npm install```.
 * _It is advisable to type all code by hand_, and not to copy-paste the examples. By typing them by hand, helps you reason about every single line and makes it comprehensible. 
@@ -162,7 +162,7 @@ router.get('/', function(req, res){
 });
 ```
 
-### Named parameters
+#### Named parameters
 ```
 // somewhere in routes/task2.js
 // ...
