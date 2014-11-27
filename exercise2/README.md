@@ -116,7 +116,7 @@ var task2 = function(req, res){
   res.send('Task 2');
 };
 
-module.exports = task;
+module.exports = task2;
 ```
 
 

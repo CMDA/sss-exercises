@@ -2,6 +2,7 @@
   "name": "exercise2",
   "version": "0.0.0",
   "description": "Practice exercises for the [sss-course](https://github.com/CMDA/sss-course).",
+  "private": true,
   "main": "index.js",
   "directories": {
     "test": "test"
