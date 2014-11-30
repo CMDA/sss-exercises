@@ -91,7 +91,7 @@ The task of the routers is to translate an incoming request, to specific code of
 5. Remember to restart the server (```node app.js```) when you've made any changes to the code. 
 5. Can you make the url [http://localhost:3000/task2](http://localhost:3000/task2) work?
 6. Read 'Route as Router'.
-6. Can you make the url [http://localhost:3000/task2/sub-route](http://localhost:3000/task2/sub-route), using ```app.use(task2Router)```, work?
+6. Can you make the url [http://localhost:3000/task2/sub-route](http://localhost:3000/task2/sub-route), using ```app.use('/task2', task2Router)```, work?
 
 ### Route as ```function```
 Say you want to route the url ```/task2```, you can declare this route by using [app.get(path, fn)](http://expressjs.com/4x/api.html#router.METHOD). 
