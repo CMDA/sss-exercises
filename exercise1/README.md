@@ -47,6 +47,23 @@ We have a made a very simple calculator, however the implementation is missing. 
 5. Run ```$ node task2.js```. Is it working?
 6. Run ```$ npm run test:task2```. All green? Well done!
 
+### Answer
+The code in ```./lib/calculator.js``` should look like.
+
+```
+// File ./lib/calculator.js
+// Task 2
+var calculator = {
+  sum: function(x, y){
+    return x * y;
+  },
+  multiply: function(x, y){
+    return x * y;
+  }
+};
+
+module.exports = calculator;
+```
 
 ## Task 3
 In the earlier example, you've seen the first module. Lets make our own one, now. In this module we are going to convert a string to titlecase, e.g.
@@ -66,6 +83,40 @@ var tools = {
   titleize: function(input){
     // manipulate the input the match the required behaviour
     return input;
+  }
+};
+
+module.exports = tools;
+```
+
+### Answer
+Two types of answer apply here, 1) you could use a regular expression, 2) split the string in tokens and capitalize every words in this array. As the second is somewhat more straight forward we have this one displayed below. 
+
+```
+var tools = {
+  titleize: function(input){
+    // make a seperate string for every word in the given input string
+    var words = input.split(' ');
+    var array = [];
+
+    words.forEach(function(word){
+      // We take the first char with .charAt, and make
+      // an upper case of that
+      var firstChar = word.charAt(0).toUpperCase();
+      // The rest of the word, we make sure that it is lowercase
+      word = word.toLowerCase();
+
+      // Now we concatenate the two piece, where we only take
+      // the characters after the first one with the slice function
+      word = firstChar + word.substring(1);
+
+      // Now we add the capitalized word into the array
+      array.push(word);
+    });
+
+    // Because we have an array and expecting a string back
+    // we join all substring into one string
+    return array.join(' ');
   }
 };
 
@@ -142,6 +193,26 @@ E.g. we've used to following url to retrieve the data set of ```data/task4.json`
 ```
 https://api.github.com/search/repositories?q=node+language:javascript&per_page=100
 ```
+
+### Answer
+First of all our module throws a bug when you try to run it. That is because we haven't added the underscore module to the package, and thus isn't installed when all other dependencies where downloaded. To solve this you can use ```$ npm install underscore --save```. After that there where two bugs in this ```stars.js``` module. The first one:
+
+```
+// Line: 11
+return sortedShortList.reverse().splice(1, 5); // BUGGY
+// The corrected version
+return sortedShortList.reverse().splice(0, 5); 
+```
+As array's in Javascript our zero indexed, following the documentation of the [Array.splice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) function, we see that if we want the first five elements returned, we should be using 0 instead of 1. 
+
+The second one:
+```
+// Line: 15
+var avg, sum, repositories, count = 0; // Buggy
+// The corrected version
+var avg, sum, count = 0; 
+```
+By incident repositories became declared twice, because of the ```var``` statement. Because of that, the ```_.reduce``` iterates over undefined and then returns undefined, and so ```sum``` remains undefined.
 
 
 ## Wrapping up

@@ -174,6 +174,9 @@ router.get('/sub-route/:name', function(req, res){
 ```
 
 
+### Answer
+Using routes we can connect URL's to our application and in specific to some part of our code that we execute once a request comes in. The answers where already given in the explanation on _Route as ..._. It's however important to note and understand that a good structure helps organising your code and logic.
+
 ## Task 3
 To prevent that you have to use HTML tags in your code you can use templates to render this and to display your data. 
 For task3 we created a router, so that you can play with some templates. 
@@ -230,6 +233,42 @@ module.exports = router;
 ```
 
 When you attach this router to you app with the following code ```app.use('/task3', task3);```. It will response to the following paths, ```http://localhost:3000/task3/title```, ```http://localhost:3000/task3/boolean```, ```http://localhost:3000/task3/loop```. 
+
+### Answer
+To ```app.js```  we add the following code:
+
+```
+var task3Routes = require('./routes/task3');
+app.use('/task3', task3Routes)
+```
+
+Make sure, that you add this code before you start the server, with the listen method like: ``` var server = app.listen(3000, fn)```.
+
+#### title.ejs
+```
+<%= title %>
+```
+
+#### boolean.ejs
+```
+<h1>
+  <% if(isBlogPost){ %><small>Blogpost:</small><% } %>
+  <%= title %>
+</h1>
+```
+
+#### loop.ejs
+There was a small error in the view for task3, hence redirecting you to ```localhost:3000/task3/loops``` instead of ```localhost:3000/task3/loop```. :( 
+Mea culpa.
+
+```
+<h1><%= title %></h1>
+
+<% blogPosts.forEach(function(post){ %>
+  <h2><%= post.title %></h2>
+  <p><%= post.excerpt %></p>
+<% }) %>
+```
 
 
 ## Task 4
