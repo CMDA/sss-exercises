@@ -1,0 +1,33 @@
+{
+  "name": "server-side-scripting-in-nodejs-exercise1",
+  "version": "0.0.1",
+  "description": "First exercise for server-side scripting in node.js course",
+  "private": true,
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "~1.10.0",
+    "jshint": "^2.5.10",
+    "mocha": "~2.0.1",
+    "sinon": "~1.11.1",
+    "mocha-clean": "~0.4.0"
+  },
+  "scripts": {
+    "test": "mocha -R nyan",
+    "test:task2": "node test/support/task-runner.js -- test/calculator.js",
+    "test:task3": "node test/support/task-runner.js -- test/string-helper.js",
+    "test:task4": "node test/support/task-runner.js -- test/stars.js"
+  },
+  "keywords": [
+    "exercise1",
+    "serverside",
+    "scripting",
+    "nodejs",
+    "course"
+  ],
+  "author": "",
+  "license": "MIT"
+}
