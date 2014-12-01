@@ -296,3 +296,138 @@ request(url, function(error, response, body){
 
 ### ... when you're done
 Can you make [http://localhost:3000/task4/:location](http://localhost:3000/task4/:location) work dynamic? Meaning you load the city that is specified in the ```:location``` named param?
+
+### Answer
+When starting ```node app.js```, we see that we do not serve [http://localhost:3000/task4](http://localhost:3000/task4). We make this work by adding 
+```
+var task4Routes = require('./routes/task4');
+app.use('/task4', task4Routes);
+```
+to ```app.js```. We add this before the ```.listen``` call. Restarting the server and visiting [http://localhost:3000/task4](http://localhost:3000/task4) will then yield, a title saying: "Het weer vandaag". A simple ```request``` looks like:
+```
+  var url = "http://api.openweathermap.org/data/2.5/weather?q=Amsterdam,nl";
+  request.get(url, function(err, response, body){
+    var weather = JSON.parse(body);
+    res.render('task4', {title: 'Het weer vandaag', weather: weather});
+  });
+```
+You must add this inside the route function in ```./routes/task4.js```. Restarting the server and visiting [http://localhost:3000/task4](http://localhost:3000/task4), show nothing yet. However we now have a weather object in the view, lets print that out. So that our template ```./views/task4.ejs``` will look like the following.
+
+```
+<%= include layouts/head %>
+
+<h1><%= title %></h1>
+
+<%= weather %>
+
+<%= include layouts/foot %>
+```
+
+Refreshing [http://localhost:3000/task4](http://localhost:3000/task4), we now print the title with ```[object Object]```. Which isn't that helpful, this is because we parsed the body to JSON in our router. To see whats inside this ```[object Object]``` we make a string back of it with ```JSON.stringify(weather)```. This is the inverse of ```JSON.parse```. Lets refresh again! We now see whats inside our weahter object, lets add the location to the title. Modifying the view into: 
+```
+<%= include layouts/head %>
+
+<h1><%= title %> in <%= weather.name %></h1>
+
+<%= JSON.stringify(weather) %>
+
+<%= include layouts/foot %>
+```
+
+Now lets at the min, max and current temperature to the page.
+
+```
+<%= include layouts/head %>
+
+<h1><%= title %> in <%= weather.name %></h1>
+
+<dl>
+  <dt>Current Temperature</dt>
+  <dd><%= weather.main.temp %></dd>
+  <dt>Minimum Temperature</dt>
+  <dd><%= weather.main.temp_min %></dd>
+  <dt>Max Temperature</dt>
+  <dd><%= weather.main.temp_max %></dd>
+</dl>
+
+<%= JSON.stringify(weather) %>
+
+<%= include layouts/foot %>
+```
+
+We now still have the temparature in Kelvin, lets make a module so we can recalculate. Lets create a file called ```temperature```, inside the ```./lib``` folder. Luckily for us kelvin to celsuis is easily calculated by distracting _'-272.15'_. And we round the number to look a little more user-friendly with the [.toFixed](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed) function.
+
+```
+function kelvinToCelsius(kelvin){
+  return (kelvin - 272.15).toFixed(1);
+}
+
+module.exports = {
+  kelvinToCelsius: kelvinToCelsius
+};
+```
+
+Lets test this module in the REPL. Start it with ```$ node```.
+```
+> var temp = require('./lib/temperature')
+undefined
+> temp
+{ kelvinToCelsius: [Function: kelvinToCelsius] }
+> temp.kelvinToCelsius(275)
+2.9
+```
+
+That seems to work, lets make that function available in our view. First we require the temp module in our route. Making our ```./routes/task4``` look like this:
+
+```
+var express = require('express');
+var router = express.Router();
+var request = require("request");
+var tempCalc = require("../lib/temperature");
+
+/* GET Weather page. */
+router.get('/', function(req, res) {
+
+  var url = "http://api.openweathermap.org/data/2.5/weather?q=Amsterdam,nl";
+  request.get(url, function(err, response, body){
+    var weather = JSON.parse(body);
+    res.render('task4', {
+      title: 'Het weer vandaag', 
+      weather: weather, 
+      tempCalc: tempCalc
+    });
+  });
+
+
+});
+
+// Extra opdacht op basis van query string weer ophalen
+module.exports = router;
+```
+
+Now can use it in our template like this:
+
+```
+<%= tempCalc.kelvinToCelsius(weather.main.temp) %>
+```
+
+As last thing we want to display the icon that comes from openweathermap. We use a image tag to display this image. The icon code is found in the weather variable. Unfortunately this makes are code look abit clumpsy, but thats al right for the moment. This ```weather``` object is an array, we access the first element in this array with ```[0]```. We then remove the ```JSON.stringify``` line, to clean things up. Making our template look like:
+
+```
+<%= include layouts/head %>
+
+<h1><%= title %> in <%= weather.name %></h1>
+<img src="http://openweathermap.org/img/w/<%= weather.weather[0].icon %>.png" alt="Current weather: <%= weather.weather[0].main%>">
+<dl>
+  <dt>Current Temperature</dt>
+  <dd><%= tempCalc.kelvinToCelsius(weather.main.temp) %></dd>
+  <dt>Minimum Temperature</dt>
+  <dd><%= tempCalc.kelvinToCelsius(weather.main.temp_min) %></dd>
+  <dt>Max Temperature</dt>
+  <dd><%= tempCalc.kelvinToCelsius(weather.main.temp_max) %></dd>
+</dl>
+
+<%= include layouts/foot %>
+```
+
+And we are done.
