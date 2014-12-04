@@ -6,7 +6,7 @@ Practice exercises for the [sss-course](https://github.com/CMDA/sss-course).
 In this exercise we will work with login for a user. We will work with sessions to see if a user is logged in. 
 
 ## Before you start
-* [Download this exercise]()
+* [Download this exercise](http://cl.ly/0u3W0D3k0d07)
 * Run ```$ npm install``` to install the dependencies. 
 * Read the exercises, review the slides of [last lecture](http://cmda.github.io/sss-course/lesson3).
 * _It is advisable to type all code by hand_, and not to copy-paste the examples. By typing them by hand, helps you reason about every single line and makes it comprehensible. 
