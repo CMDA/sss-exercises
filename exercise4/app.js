@@ -1,6 +1,6 @@
 var express = require('express');
 var session = require('express-session');
-var logger = require('./libs/middleware/logger');
+
 var path = require('path');
 var app = express();
 

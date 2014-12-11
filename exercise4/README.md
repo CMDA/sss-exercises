@@ -6,7 +6,7 @@ Practice exercises for the [sss-course](https://github.com/CMDA/sss-course).
 In this exercise we will work with middleware, and will use authentication  with user login. And we will an upload form for files.
 
 ## Before you start
-* [Download this exercise](http://cl.ly/0Y2F2A1M1x18)
+* [Download this exercise](http://cl.ly/1z0Q373i1Q0R)
 * Run ```$ npm install``` in the exercise directory to install the dependencies. 
 * Read the exercises, review the slides of [last lecture](http://cmda.github.io/sss-course/lesson4).
 * _It is advisable to type all code by hand_, and not to copy-paste the examples. By typing them by hand, helps you reason about every single line and makes it comprehensible. 
