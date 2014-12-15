@@ -37,8 +37,10 @@ We've supplied you with a minimum boilerplate, what we are going to build.
             <h1>$titel</h1>
             <p>Geschreven door $auteur, op 15 december 2014.</p>
         </header>
-        <p class="intro">intro</p>
-        ... content ...
+        <div class="content">
+            <p class="intro">intro</p>
+            ... content ...            
+        </div>
 2. 
 
 
