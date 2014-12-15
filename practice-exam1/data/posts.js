@@ -31,10 +31,11 @@ module.exports = function(req, res, next){
   req.locals = req.locals || {};
   req.locals.posts = posts;
 
-  // Safe reference to original res.end
+  // Keep a reference to original res.end
   var end = res.end;
-  // When the response has ended, save the
-  // that current data to cache
+
+  // When the response has ended, write the
+  // current data to fs
   res.end = function(data, encoding){
     var dataSet = {
       env: env,
