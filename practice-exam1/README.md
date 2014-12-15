@@ -33,14 +33,12 @@ We've supplied you with a minimum boilerplate, what we are going to build.
 ## Task 2
 1. Create a route for a detail page for each post, such that a post can be visited with by an ID, ```/blog/:post_id```. E.g. ```/blog/1``` showing the following information for the blog post with ID 1.
 
-        ```
-            <header>
-                <h1>$titel</h1>
-                <p>Geschreven door $auteur, op 15 december 2014.</p>
-            </header>
-            <p class="intro">intro</p>
-            ... content ...
-        ```
+        <header>
+            <h1>$titel</h1>
+            <p>Geschreven door $auteur, op 15 december 2014.</p>
+        </header>
+        <p class="intro">intro</p>
+        ... content ...
 2. 
 
 
