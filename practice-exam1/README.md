@@ -16,7 +16,6 @@ We've supplied you with a minimum boilerplate, what we are going to build.
 
 ## Task 1
 1. Create a router for ```/blog```
-    ```
         <h1>Blog entries</h1>
         <ul>
             <li>
@@ -26,8 +25,7 @@ We've supplied you with a minimum boilerplate, what we are going to build.
                 </a>
             </li>
         </ul>
-    ```
-2. Show on the all locations available on this page, with an anchor to a detail page for each location.
+2. Show on the all blog posts that are in the post model. You get call all postobjects by calling ```.all()``` on the post object. Render them on the index page with an anchor to the detail page for each location.
 
 
 ## Task 2
