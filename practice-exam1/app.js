@@ -1,11 +1,14 @@
 var express = require('express');
-var session = require('express-session');
-
+var dataSet = require('./data/posts');
 var path = require('path');
 var app = express();
 
 // Setup serving static assets
 app.use(express.static('public'));
+
+// Hook our dataSet middleware,
+// making the dataset avaible
+app.use(dataSet);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
