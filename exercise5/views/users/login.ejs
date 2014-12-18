@@ -1,5 +1,10 @@
 <!-- views/users/login.ejs -->
-<form action="/users/login" method="post">
+<% if(error){ %>
+  <div class="error">
+    <%= error %>
+  </div>
+<% } %>
+<form action="<%= postUrl %>" method="post">
   <label for="field_username">Username: </label>
   <input type="text" id="field_username" name="username" value="">
 
