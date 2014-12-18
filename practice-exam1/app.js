@@ -8,7 +8,7 @@ app.use(express.static('public'));
 
 // Hook our dataSet middleware,
 // making the dataset avaible
-app.use(dataSet);
+app.use(dataSet());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -18,10 +18,12 @@ app.get('/', function(req, res) {
   res.render('index', {title: 'SSS - Practice exam 1'});
 });
 
-module.exports = app;
+app.use('/blogs', require('./routes/blog'))
 
 if(module === require.main){
-  app.listen(port, function(){
+  app.listen(3000, function(){
     console.log('App listening at http://localhost:3000');
   });
 }
+
+module.exports = app;
