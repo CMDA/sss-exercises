@@ -2,35 +2,25 @@ var fs = require('fs');
 
 var env = 'development';
 
-var dataSample = {
-  'env': env,
-  'store': {
-    'posts':[{
-      'id': 1,
-      'author': 'Blog author',
-      'title': 'Blog title'
-    }]
-  }
-};
-
 /* 101 - FS cached data store */
 module.exports = function(req, res, next){
 
   var store = {},
+      sampleDataPath = './data/sample-data.json',
       dir = './tmp/', // will likely crash, when using more then 1 lvl
       fileName = 'data-set.json',
       path = dir + fileName;
 
-  // Since we have no data, load the sample
   if (!fs.existsSync(path)) {
-    store = dataSample.store;
+    // Since we have no data, load the sample
+    store = JSON.parse(fs.readFileSync(sampleDataPath, 'utf8'));
   } else {
     // Read file, can't continue without it,
     // so not much use making it async
-    store = JSON.parse(fs.readFileSync(path, 'utf8')).posts;
+    store = JSON.parse(fs.readFileSync(path, 'utf8')).store;
   }
 
-  // Setup data
+  // Setup data on request object
   req.locals = req.locals || {};
   req.locals.store = store;
 

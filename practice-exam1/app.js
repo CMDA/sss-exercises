@@ -1,5 +1,5 @@
 var express = require('express');
-var dataSet = require('./data/posts');
+var dataSet = require('./data/store');
 var path = require('path');
 var app = express();
 
