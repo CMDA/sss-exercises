@@ -39,6 +39,7 @@ We have set up a simple array of blogposts. After you've started the application
 ## Task 3
 1. Create a `/new` route in `routes/blogs.js` to render the form in `views/new.ejs`. Don't forget to pass the `req` object to the template.
 1. Create a `/` route so the form works when you press the "Save" button in the form.
-1. Make sure that the user cannot enter an empty title and set pass the variable `error` if an empty title has been rendered.
+1. Validate that the data from the form cannot contain an empty title.
+1. If the title is empty pass the `error` variable with an error message to the template using `req.locals`.
 1. Add the data from the form to `req.locals.store` array if the input is valid (e.g. the title has been set)
 1. Redirect the user to `/` after you've stored the data
