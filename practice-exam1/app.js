@@ -18,7 +18,10 @@ app.get('/', function(req, res) {
   res.render('index', {title: 'SSS - Practice exam 1'});
 });
 
-// Start the server
-app.listen(3000, function(){
-  console.log('App listening at http://localhost:3000');
-});
+module.exports = app;
+
+if(module === require.main){
+  app.listen(port, function(){
+    console.log('App listening at http://localhost:3000');
+  });
+}
