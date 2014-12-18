@@ -13,8 +13,15 @@ In this exercise we will work with further with login for a user, making our app
 
 ### Reading list
 * [Node. js in Action, Cantelon, Mike, et al. - Manning Publications, 2014](http://www.manning.com/cantelon/)
-
-
+    -  Boek: 5.2 t/m 5.2.1 (pagina 102 t/m 110)
+*  http://www.mysqltutorial.org
+    -  [MySQL SELECT](http://www.mysqltutorial.org/mysql-select-statement-query-data.aspx)
+    -  [MySQL INNER JOIN](http://www.mysqltutorial.org/mysql-inner-join.aspx)
+    -  [MySQL LEFT JOIN](http://www.mysqltutorial.org/mysql-left-join.aspx)
+    -  [MySQL INSERT](http://www.mysqltutorial.org/mysql-insert-statement.aspx)
+    -  [MySQL UPDATE](http://www.mysqltutorial.org/mysql-update-data.aspx)
+    -  [MySQL DELETE](http://www.mysqltutorial.org/mysql-delete-statement.aspx)
+    -  
 ## Task 1
 We have taken the end result of _exercise 3_. In exercise 3 we worked with user authentication, however we only supported one user right now. By means of a database we will be able to authenticate multiple users.
 
