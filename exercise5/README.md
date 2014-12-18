@@ -6,7 +6,7 @@ Practice exercises for the [sss-course](https://github.com/CMDA/sss-course).
 In this exercise we will work with further with login for a user, making our application work for multiple users. We will store user in the database and work with some basic models to programming our data interface.
 
 ## Before you start
-* [Download this exercise](http://cl.ly/0u3W0D3k0d07)
+* [Download this exercise](http://cl.ly/1e1s2K1n2l2o)
 * Run ```$ npm install``` to install the dependencies. 
 * Read the exercises, review the slides of [last lecture](http://cmda.github.io/sss-course/lesson5).
 * _It is advisable to type all code by hand_, and not to copy-paste the examples. By typing them by hand, helps you reason about every single line and makes it comprehensible. 
@@ -21,7 +21,7 @@ In this exercise we will work with further with login for a user, making our app
     -  [MySQL INSERT](http://www.mysqltutorial.org/mysql-insert-statement.aspx)
     -  [MySQL UPDATE](http://www.mysqltutorial.org/mysql-update-data.aspx)
     -  [MySQL DELETE](http://www.mysqltutorial.org/mysql-delete-statement.aspx)
-    -  
+
 ## Task 1
 We have taken the end result of _exercise 3_. In exercise 3 we worked with user authentication, however we only supported one user right now. By means of a database we will be able to authenticate multiple users.
 
