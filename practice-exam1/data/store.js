@@ -3,10 +3,11 @@ var fs = require('fs');
 var env = 'development';
 
 /* 101 - FS cached data store */
-module.exports = function(config){
-  if(!config){
-    var config = global.config || {}
-  }
+module.exports = function(){
+  var config = global.config || {
+    resetData: false
+  };
+
   return function(req, res, next){
 
     var store = {},
@@ -15,7 +16,7 @@ module.exports = function(config){
         fileName = 'data-set.json',
         path = dir + fileName;
 
-    if (!fs.existsSync(path)) {
+    if (!fs.existsSync(path) || config.resetData ) {
       // Since we have no data, load the sample
       store = JSON.parse(fs.readFileSync(sampleDataPath, 'utf8'));
     } else {
