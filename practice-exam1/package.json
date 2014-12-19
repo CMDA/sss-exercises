@@ -23,8 +23,7 @@
     "test": "mocha",
     "test:task1": "node test/support/task-runner.js -- test/task1.js",
     "test:task2": "node test/support/task-runner.js -- test/task2.js",
-    "test:task3": "node test/support/task-runner.js -- test/task3.js",
-    "test:bonus": "node test/support/task-runner.js -- test/support/bonus.js"
+    "test:task3": "node test/support/task-runner.js -- test/task3.js"
   },
   "keywords": [
     "exercise1",

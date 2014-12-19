@@ -7,7 +7,7 @@ var app = express();
 app.use(express.static('public'));
 
 // Hook our dataSet middleware,
-// making the dataset avaible
+// making the dataset available
 app.use(dataSet());
 
 // view engine setup
@@ -17,8 +17,6 @@ app.set('view engine', 'ejs');
 app.get('/', function(req, res) {
   res.render('index', {title: 'SSS - Practice exam 1'});
 });
-
-app.use('/blogs', require('./routes/blog'))
 
 if(module === require.main){
   app.listen(3000, function(){

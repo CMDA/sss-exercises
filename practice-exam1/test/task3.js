@@ -62,6 +62,7 @@ describe('Task three', function(){
     request(app)
       .post('/blogs')
       .send(postData)
+      .expect(200)
       .end(function(err){
         expect(err).to.not.exist();
         getStore(function(err, store){
