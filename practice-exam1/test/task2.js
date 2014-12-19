@@ -1,8 +1,8 @@
 var expect = require('chai').expect;
 var request = require('supertest');
 
-var data = require(__dirname + "/support/data");
-var app = require(__dirname + "/../app");
+var data = require(__dirname + '/support/data');
+var app = require(__dirname + '/../app');
 
 // GET /blogs/0 = 200
 // GET /blogs/5 = 404
@@ -15,24 +15,24 @@ describe('Task two', function(){
 
   it('1. /blogs/0 works', function(done){
     request(app)
-      .get("/blogs/0")
+      .get('/blogs/0')
       .expect(200, done);
   });
 
   // Issue: getting anything works but just gives no output
   it('1. /blogs/5 doesn\'t work', function(done){
     request(app)
-      .get("/blogs/5")
+      .get('/blogs/5')
       .end(function(err, res){
         expect(err).to.not.exist();
         expect(res.status).to.not.equal(200);
-        done()
-      })
+        done();
+      });
   });
 
   it('2. /blogs/0 contains title', function(done){
     request(app)
-      .get("/blogs/0")
+      .get('/blogs/0')
       .end(function(err, res){
         expect(err).to.not.exist();
         expect(res.text).to.include(data.posts[0].title);
@@ -43,7 +43,7 @@ describe('Task two', function(){
 
   it('2. /blogs/0 contains intro', function(done){
     request(app)
-      .get("/blogs/0")
+      .get('/blogs/0')
       .end(function(err, res){
         expect(err).to.not.exist();
         expect(res.text).to.include(data.posts[0].intro);
@@ -55,7 +55,7 @@ describe('Task two', function(){
 
   it('2. /blogs/0 contains author', function(done){
     request(app)
-      .get("/blogs/0")
+      .get('/blogs/0')
       .end(function(err, res){
         expect(err).to.not.exist();
         expect(res.text).to.include(data.posts[0].author);
@@ -66,14 +66,15 @@ describe('Task two', function(){
 
   it('3. /blogs includes links', function(done){
     request(app)
-      .get("/blogs")
+      .get('/blogs')
       .expect(200)
       .end(function(err, res){
         expect(err).to.not.exist();
         for(var i = 0; i < data.posts.length; i++){
-          expect(res.text).to.include("/blogs/" + i);
+          expect(res.text).to.include('/blogs/' + i);
+          done();
         }
-      })
-  })
+      });
+  });
 
 });

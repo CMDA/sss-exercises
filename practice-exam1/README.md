@@ -22,7 +22,7 @@ Practice exam for the [sss-course](https://github.com/CMDA/sss-course).
 
 ## Data
 
-We have set up a simple array of blogposts. After you've started the application you can see the blogposts in `tmp/data-set.json`. You can access the blogposts by using `req.locals.store`, all changes you make in `req.locals.store` will be saved as well.
+We have set up a simple array of blogposts. After you've started the application you can see the blogposts in `tmp/data-set.json`. You can access the blogposts by using `req.locals.store.posts`, all changes you make in `req.locals.store` will be saved as well.
 
 ## Task 1
 1. Create a router in `routes/blogs.js`
@@ -36,11 +36,10 @@ We have set up a simple array of blogposts. After you've started the application
 1. Change the template (`views/index.ejs`) from the previous task and link each blogpost in the list to the detail page so we can easily navigate from the overview to the subpage
 1. *BONUS* output the blog body in a way that the HTML is not escaped.
 
-
 ## Task 3
 1. Create a `/new` route in `routes/blogs.js` to render the form in `views/new.ejs`. Don't forget to pass the `req` object to the template.
 1. Create a `/` route so the form works when you press the "Save" button in the form.
+1. Add the data from the form to `req.locals.store`.
+1. Redirect the user to `/` after you've stored the data
 1. Validate that the data from the form cannot contain an empty title.
 1. If the title is empty pass the `error` variable with an error message to the template using `req.locals`.
-1. Add the data from the form to `req.locals.store` array if the input is valid (e.g. the title has been set)
-1. Redirect the user to `/` after you've stored the data
