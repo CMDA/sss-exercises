@@ -3,7 +3,7 @@
 Practice exam for the [sss-course](https://github.com/CMDA/sss-course).
 
 ## Getting started
-* [Download this exam](http://cl.ly/1z0Q373i1Q0R)
+* [Download this exam](http://cl.ly/0f4334202O1v)
 * Run ```$ npm install``` in the exercise directory to install the dependencies.
 
 ## The rules
