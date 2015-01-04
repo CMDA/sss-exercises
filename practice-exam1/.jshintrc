@@ -41,7 +41,7 @@
   "newcap": false,
 
   // Enforce use of single quotation marks for strings.
-  "quotmark": true,
+  "quotmark": "single",
 
   // Prohibit trailing whitespace.
   "trailing": true,

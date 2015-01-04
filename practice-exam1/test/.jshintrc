@@ -14,7 +14,7 @@
   "node": true,
 
   // Placeholder for your own predefs
-  "predef": [],
+  "predef": ["describe", "it", "beforeEach"],
 
   /*
    * ENFORCING OPTIONS
@@ -41,7 +41,7 @@
   "newcap": false,
 
   // Enforce use of single quotation marks for strings.
-  "quotmark": true,
+  "quotmark": "single",
 
   // Prohibit trailing whitespace.
   "trailing": true,

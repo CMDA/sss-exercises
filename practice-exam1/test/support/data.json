@@ -1,0 +1,13 @@
+{
+  "posts": [{
+    "title": "T0",
+    "author": "A0",
+    "intro": "I0",
+    "body": "<p>B0</p>"
+  },{
+    "title": "T1",
+    "author": "A1",
+    "intro": "I1",
+    "body": "<p>B1</p>"
+  }]
+}
