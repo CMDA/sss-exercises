@@ -1,0 +1,6 @@
+<h1><%= title %></h1>
+<p>Practice exam</p>
+
+<% posts.forEach(function(post, index){ %>
+  <div><a href="/blogs/<%= index %>"><%= post.title %></a></div>
+<% }) %>

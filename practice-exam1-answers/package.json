@@ -1,0 +1,38 @@
+{
+  "name": "server-side-scripting-in-nodejs-exercise1",
+  "version": "0.0.1",
+  "description": "Practice exam for Server-side scripting",
+  "private": true,
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "body-parser": "^1.10.1",
+    "ejs": "~1.0.0",
+    "express": "~4.10.6"
+  },
+  "devDependencies": {
+    "chai": "~1.10.0",
+    "jshint": "^2.5.10",
+    "mocha": "~2.0.1",
+    "mocha-clean": "~0.4.0",
+    "sinon": "~1.11.1",
+    "supertest": "^0.15.0"
+  },
+  "scripts": {
+    "test": "mocha",
+    "test:task1": "node test/support/task-runner.js -- test/task1.js",
+    "test:task2": "node test/support/task-runner.js -- test/task2.js",
+    "test:task3": "node test/support/task-runner.js -- test/task3.js"
+  },
+  "keywords": [
+    "exercise1",
+    "serverside",
+    "scripting",
+    "nodejs",
+    "course"
+  ],
+  "author": "",
+  "license": "MIT"
+}
