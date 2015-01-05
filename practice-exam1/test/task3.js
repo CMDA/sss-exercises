@@ -35,6 +35,7 @@ describe('Task three', function(){
     var postData = {title : 'a', author: 'b', intro: 'c', body: 'd'};
     request(app)
       .post('/blogs')
+      .type("form")
       .send(postData)
       .expect(302)
       .end(function(err){
@@ -51,6 +52,7 @@ describe('Task three', function(){
     var postData = {title : 'a', author: 'b', intro: 'c', body: 'd'};
     request(app)
       .post('/blogs')
+      .type("form")
       .send(postData)
       .expect(302, done);
   });
@@ -61,6 +63,7 @@ describe('Task three', function(){
 
     request(app)
       .post('/blogs')
+      .type("form")
       .send(postData)
       .expect(200)
       .end(function(err){
@@ -78,6 +81,7 @@ describe('Task three', function(){
 
     request(app)
       .post('/blogs')
+      .type("form")
       .send(postData)
       .end(function(err, res){
         expect(err).to.not.exist();
