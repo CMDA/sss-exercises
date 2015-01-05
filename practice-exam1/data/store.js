@@ -8,15 +8,20 @@ module.exports = function(){
     resetData: false
   };
 
+  var sampleDataPath = config.sampleDataPath || './data/sample-data.json',
+    dir = config.dataDir || './tmp/', // will likely crash, when using more then 1 lvl
+    fileName = 'data-set.json',
+    path = dir + fileName;
+
+  if(config.resetData){
+    fs.unlinkSync(path);
+  }
+
   return function(req, res, next){
 
-    var store = {},
-        sampleDataPath = config.sampleDataPath || './data/sample-data.json',
-        dir = config.dataDir || './tmp/', // will likely crash, when using more then 1 lvl
-        fileName = 'data-set.json',
-        path = dir + fileName;
+    var store = {};
 
-    if (!fs.existsSync(path) || config.resetData ) {
+    if (!fs.existsSync(path)) {
       // Since we have no data, load the sample
       store = JSON.parse(fs.readFileSync(sampleDataPath, 'utf8'));
     } else {
