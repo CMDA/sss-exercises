@@ -42,6 +42,6 @@ We have set up a simple array of blogposts. After you've started the application
 1. Add the data from the form to `req.locals.store.posts`.
 1. Redirect the user to `/` after you've stored the data
 1. Validate that the data from the form cannot contain an empty title.
-1. If the title is empty pass the `error` variable with an error message to the template using `req.locals`.
+1. If the title is empty pass the `error` variable with an error message to the template.
 
 
