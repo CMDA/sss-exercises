@@ -31,7 +31,7 @@ We have set up a simple array of blogposts. After you've started the application
 1. Make the route `/` work in `routes/blogs.js` so we can see the list of blogposts when we visit the URL "/blogs"
 
 ## Task 2
-1. Create a route for a detail page for each post in `routes/blogs.js` so we can visit the URL(s) "/blog/0" or "/blog/1", etc to get the blog posts by array index (0 being the first).
+1. Create a route for a detail page for each post in `routes/blogs.js` so we can visit the URL(s) "/blogs/0" or "/blogs/1", etc to get the blog posts by array index (0 being the first).
 1. Create a `views/show.ejs` template and render them in the just created route. Make sure you output at least the blog title, the blog author and the blog intro
 1. Change the template (`views/index.ejs`) from the previous task and link each blogpost in the list to the detail page so we can easily navigate from the overview to the subpage
 1. *BONUS* output the blog body in a way that the HTML is not escaped.
