@@ -1,1 +1,12 @@
 <h1><%= title %></h1>
+
+<ul>
+  <li><a href="/secret">secret</a></li>
+  <li><a href="/promotion">promotion</a></li>
+</ul>
+
+<% if(user){ %>
+  <p>Ingelogd</p>
+<% } else { %>
+  <p><a href="/users/login">Inloggen</a></p>
+<% }%>
