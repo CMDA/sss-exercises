@@ -72,8 +72,8 @@ describe('Task two', function(){
         expect(err).to.not.exist();
         for(var i = 0; i < data.posts.length; i++){
           expect(res.text).to.include('/blogs/' + i);
-          done();
         }
+        done();
       });
   });
 
