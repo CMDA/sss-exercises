@@ -29,7 +29,8 @@ is already middleware. On [L:57](https://github.com/expressjs/serve-static/blob/
 
 The middleware logger that shows use the requested url and request type, would look like:
 
-```libs/middleware/logger.js
+```javascript
+// libs/middleware/logger.js
 // Request logger
 module.exports = function(req, res, next){
   // Grab request type and url
@@ -46,7 +47,8 @@ module.exports = function(req, res, next){
 
 We include this in app.js with:
 
-```app.js
+```javascript
+// app.js
 var logger = require('./lib/middleware/logger');
 app.use(logger);
 ```
@@ -68,7 +70,7 @@ We've taken the code from exercise3, and added a `routes/users`, and `views/user
 
 For logout functionality; use the following code. What we do it we delete the username for the session object.
 
-```
+```javascript
 // [GET] /users/logout
 router.get('/logout', function(req, res){
   delete req.session.username;
@@ -79,7 +81,7 @@ router.get('/logout', function(req, res){
 
 In the ```app.get('/', ..```, add a quick check to see if we have a user.
 
-```
+```javascript
 // app.js
 // ... code
 // [GET] /
@@ -100,7 +102,8 @@ app.get('/', function(req, res) {
 
 I continue by updating the application index with 2 links and some boolean logic to see if the user is logged in.
 
-```views/index
+```javascript
+// views/index
 <h1><%= title %></h1>
 
 <ul>
@@ -117,7 +120,7 @@ I continue by updating the application index with 2 links and some boolean logic
 
 Now that we have a link to `/secret` and `/promotion`, lets make two routes for that. Use the following code for that, and add it after the other routes, but before the `app.listen` method call. This way we can separate the secret route, by making use of a middleware we can control access for multiple routes. We can do quite [powerfull actions](http://cmda.github.io/sss-course/lesson4#/5/8) with middleware, saving you from coding and thus bugs. 
 
-```
+```javascript
 // app.js
 // ... 
 // Make promotion
@@ -161,7 +164,7 @@ Often an application has support for user uploads, and shows these uploads in a 
 ### Answer
 For this functionality we need 3 routes, 1st to display all uploads, a 2nd for an upload form and a 3rd posting the form. It is arguable that you would need a 4th route to display the upload itself. But we will save them in the public directory, where they will be served by the static middleware we also use for css/js. Its depending of the requirements if this is suitable for your application, e.g. should everybody access? If that is a yes, the public directory is fine. We build the basic routing with the following code:
 
-```
+```javascript
 // routes/uploads.js
 // [GET] /uploads
 router.get('/', function(req, res){
@@ -179,7 +182,7 @@ router.get('/', function(req, res){
 
 And attaching them to the app with:
 
-```
+```javascript
 // app.js
 // ...
 var uploadRoutes = require('./routes/uploads');
@@ -189,7 +192,7 @@ app.use('/uploads', uploadRoutes);
 
 Create an template for the upload form
 
-```
+```javascript
 <!-- views/uploads/form.ejs -->
 <form action="/uploads/" method="post" enctype="multipart/form-data">
   <input type="file" name="imageFile" value="">
@@ -199,20 +202,20 @@ Create an template for the upload form
 
 The `action` and `post` attributes we've already seen with regular forms. The `enctype` is required for [uploading files](http://stackoverflow.com/questions/4526273/what-does-enctype-multipart-form-data-mean). Next to the `enctype`, we need a parser to make sure node.js understand these types of forms. For this we use `multer`:
 
-```
+```shell
 $ npm install multer --save
 ```
 
 And add it to the app.js
 
-```
+```javascript
 var multer = require('multer');
 app.use(multer({dest: __dirname + '/public/uploads' }));
 ```
 
 With `multer` files are available in `req.files.upload` in the `[POST]`. Make sure the template is rendered, and add the following code inside the `[POST]` route. Make sure you don't forget to `require('fs')`, this is needed to rename the file back to its original name, uploading gives it a temporary name. 
 
-```
+```javascript
 // [POST] /uploads
 router.post('/', function(req, res){
   // File path
@@ -233,7 +236,7 @@ When everything is correct you can upload a new image on [/uploads/new](http://l
 
 Now we have to make the index route. We will use the file system, `fs`. To prevent duplication, move the `var filesPath = ... ` above `index` route. In the `index` route, we will get all files from the `filesPath` and render this to our template. The `files` variable will be an array of all our uploads.
 
-```
+```javascript
 // [GET] /uploads
 router.get('/', function(req, res){
   fs.readdir(filesPath, function(err, files){
@@ -249,7 +252,7 @@ router.get('/', function(req, res){
 
 With the following template we can now display the images.
 
-```
+```javascript
 <h1>Uploads</h1>
 <% files.forEach(function(file){ %>
   <li><img src="<%= "/public/uploads/" + file %>"></li>
