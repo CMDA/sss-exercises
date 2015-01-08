@@ -13,7 +13,7 @@ module.exports = function(){
     fileName = 'data-set.json',
     path = dir + fileName;
 
-  if(config.resetData){
+  if(config.resetData && fs.existsSync(path)){
     fs.unlinkSync(path);
   }
 
