@@ -15,4 +15,4 @@ This is the basic application with which you can create your final assignment.
 ## Database
 The base database should be enough to create the bare minimum application required. The database includes 3 tables; users, photos and comments:
 
-![Datamodel](database/model.svg)
+![Datamodel](database/model.svg?raw=true)
