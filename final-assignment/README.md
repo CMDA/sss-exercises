@@ -16,3 +16,6 @@ This is the basic application with which you can create your final assignment.
 The base database should be enough to create the bare minimum application required. The database includes 3 tables; users, photos and comments:
 
 ![Datamodel](database/model.png?raw=true)
+
+## Session
+There is one minor difference between the excersises and this assignment in session handling. Sessions will not be removed when the application restarts. Delete the contents of the `sessions` directory to remove all sessions.
