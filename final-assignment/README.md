@@ -4,7 +4,7 @@ This is the basic application with which you can create your final assignment.
 
 ## Getting started
 
-* [Download this base application]().
+* [Download this base application](http://cl.ly/1N2h0t1R1z1p).
 * Run ```npm install``` to install the dependencies.
 
 ## Included
